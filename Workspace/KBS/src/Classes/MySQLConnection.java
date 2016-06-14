@@ -64,7 +64,7 @@ private static String dbPass = "";      // Datenbankpasswort
     }//-if
   }//-printNameList
   
-  public static void main(String[] args){
+  public static void main(String[] args){ //Entfernen nicht vergessen
 	  MySQLConnection.printNameList();
   }//-main
   
