@@ -10,8 +10,7 @@ public class DB_Connection {
 		String host = "localhost";
 		String uName = "root";
 		String uPass = "";
-		
-		Connection con = DriverManager.getConnection(host, uName, uPass);
+	
 	}//-Main
 	
 	
