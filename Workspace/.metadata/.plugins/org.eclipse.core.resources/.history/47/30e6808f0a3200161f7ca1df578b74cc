@@ -1,0 +1,13 @@
+package Classes;
+
+public class DB_Connection {
+
+	public static void main(String[] args) {
+		String host = "localhost";
+		String UName = "root";
+		
+	}//-Main
+	
+	
+
+}//-Class

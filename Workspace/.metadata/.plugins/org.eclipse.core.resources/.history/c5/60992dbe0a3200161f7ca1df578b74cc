@@ -1,0 +1,17 @@
+package Classes;
+
+import java.sql.DriverManager;
+
+public class DB_Connection {
+
+	public static void main(String[] args) {
+		String host = "localhost";
+		String UName = "root";
+		String uPass = "";
+		
+		connection con = DriverManager.getConnection(host, UName, uPass);
+	}//-Main
+	
+	
+
+}//-Class
