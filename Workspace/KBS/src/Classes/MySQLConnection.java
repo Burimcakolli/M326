@@ -39,7 +39,7 @@ private static String dbPass = "";      // Datenbankpasswort
   public static Object exectue(String sql){
 	  con = getInstance();
       if(con != null){
-      // Abfrage-Statement erzeugen.
+      // Abfrage-Statement erzeugen..
       Statement query;
       try {
           query = con.createStatement();

@@ -24,6 +24,9 @@ public class Saal {
 	}//-Constructor neu in Programm von Tabelle
 //--END Konstruktoren
 	
+	public void insertSaal(){
+		
+	}//-public insertSaal
 	
 	
 	
