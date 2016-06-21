@@ -24,8 +24,9 @@ public class Saal {
 	}//-Constructor neu in Programm von Tabelle
 //--END Konstruktoren
 	
-	public void insertSaal(){
-		
+	public void insertSaal(String besch){
+		String sql =  "INSERT INTO tbl_Saal (Beschreibung) VALUES()";
+		MySQLConnection.exectue(sql);
 	}//-public insertSaal
 	
 	
