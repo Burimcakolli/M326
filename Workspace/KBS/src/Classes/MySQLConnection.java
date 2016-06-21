@@ -35,37 +35,25 @@ private static String dbPass = "";      // Datenbankpasswort
 	        new MySQLConnection();
 	    return con;
 	}//-getInstance
- 
-  //Gebe Tabelle in die Konsole aus
-  public static void printNameList(){
-      con = getInstance();
- 
+  
+  public static Object exectue(String sql){
+	  con = getInstance();
       if(con != null){
       // Abfrage-Statement erzeugen.
       Statement query;
       try {
           query = con.createStatement();
- 
-          // Tabelle anzeigen
-          String sql =
-                "SELECT * FROM tbl_Saal";
           ResultSet result = query.executeQuery(sql);
- 
-        // Ergebnisstabelle durchforsten
-          while (result.next()) {
-          String beschreibung = result.getString("Beschreibung");       
-          String info = beschreibung;
-         
-          System.out.println(info);
-          }//-while
+          return result;
       } catch (SQLException e) {
         e.printStackTrace();
+        return null;
       }//-catch
     }//-if
-  }//-printNameList
-  
-  public static void main(String[] args){ //Entfernen nicht vergessen
-	  MySQLConnection.printNameList();
-  }//-main
+    else{
+    	System.out.println("Connection failed");
+    	return null;
+    }//-else    
+  }//-execute
   
 }//-classes
