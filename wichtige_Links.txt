@@ -1,0 +1,8 @@
+http://docs.oracle.com/javafx/2/ui_controls/menu_controls.htm
+
+http://stackoverflow.com/questions/29011419/how-to-show-each-element-of-a-arrayliststring-in-a-tablecolumn-in-javafx
+
+http://docs.oracle.com/javafx/2/ui_controls/list-view.htm
+
+http://stackoverflow.com/questions/14878788/javafx-background-thread-for-sql-query
+
