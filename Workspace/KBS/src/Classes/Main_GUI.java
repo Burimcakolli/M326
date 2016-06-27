@@ -37,10 +37,10 @@ public class Main_GUI extends Application{
 		Button btn_Save = new Button("Speichern");
 		
 		btn_Save.setDisable(true);
-		vorstellungList.setPrefWidth(275);
-		leftList.setPrefWidth(350);
-		rightList.setPrefWidth(275);
-		middleList.setPrefWidth(275);
+		vorstellungList.setPrefWidth(293.75);
+		leftList.setPrefWidth(293.75);
+		rightList.setPrefWidth(293.75);
+		middleList.setPrefWidth(293.75);
 		leftList.setPrefHeight(680);
 		rightList.setPrefHeight(680);
 		middleList.setPrefHeight(680);
