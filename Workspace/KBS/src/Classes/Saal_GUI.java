@@ -14,17 +14,17 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Saal_GUI extends Application{
+	Scene scene1;
+	BorderPane layout_Saal;
+	Stage theStage;
 
-public static void main(String[] args) {
-		
-		launch(args);
-	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		primaryStage.setTitle("SaalVerwaltung");
+		theStage = primaryStage;
+		theStage.setTitle("SaalVerwaltung");
 		ListView<String> saalList = new ListView<String>();
 		BorderPane saal = new BorderPane();
-		BorderPane layout = new BorderPane();
+		layout_Saal = new BorderPane();
 		BorderPane saalPane = new BorderPane();
 		HBox newSaalBox = new HBox();
 		Button newSaal = new Button();
@@ -47,14 +47,14 @@ public static void main(String[] args) {
 		
 //		saal.getChildren().add(saalList);
 		saalPane.setCenter(saalList);
-		layout.setCenter(saalPane);
-		layout.setRight(saal);
-		layout.setBottom(newSaalBox);
+		layout_Saal.setCenter(saalPane);
+		layout_Saal.setRight(saal);
+		layout_Saal.setBottom(newSaalBox);
 		
-		Scene scene = new Scene(layout, 750, 600);
-		primaryStage.setResizable(false);
-		primaryStage.setScene(scene);
-		primaryStage.show();
+//		scene1 = new Scene(layout_Saal, 750, 600);
+//		theStage.setResizable(false);
+//		theStage.setScene(scene1);
+//		theStage.show();
 	}
 
 }
