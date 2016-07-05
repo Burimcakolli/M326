@@ -18,8 +18,8 @@
               <children>
                 <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="614.0" prefWidth="1452.0">
                   <bottom>
-                    <Button fx:id="button_Load" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#load_GridPane" text="add_Grid" BorderPane.alignment="BOTTOM_RIGHT">
-                      <BorderPane.margin>
+                   <Button fx:id="button_Load" alignment="BOTTOM_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#load_GridPane" text="add_Grid" BorderPane.alignment="BOTTOM_RIGHT">
+                    <BorderPane.margin>
                         <Insets right="15.0" />
                       </BorderPane.margin>
                     </Button>

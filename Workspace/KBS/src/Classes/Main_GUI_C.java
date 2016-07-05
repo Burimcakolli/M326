@@ -19,10 +19,12 @@ public class Main_GUI_C implements Initializable{
 	private GridPane grid;
 	@FXML
 	private Button save;
+	//SitzPlatzFeld sitzPlatzFeld = new SitzPlatzFeld(new Sitz(false, 3, 1, new Saal("Diese Saal", 10, 20)), false);
 	
 	public void load_GridPane(){
-		System.out.println("Show GridPane");
-
+		System.out.println("Show GridPane test");
+	
+	    	
 		GridPane newgrid = new GridPane();
 		newgrid.setGridLinesVisible(true);
 		final int numCols = 5 ;
@@ -42,10 +44,13 @@ public class Main_GUI_C implements Initializable{
 
          
         }
+     
+       
+        //newgrid.add(sitzPlatzFeld, 1, 1);
         grid.add(newgrid, 0, 1);
         save.setDisable(false);
         
-       	
+        
         
     
 	}
