@@ -22,11 +22,14 @@ public class SitzPlatzFeld extends Button{
 		System.out.println("Ich wurde erzeugt");
 		if(this.mySitz.isAktiv() == true){
 			System.out.println("ist Aktiv");
-			
+			this.setGraphic(new ImageView(this.getFrei_Bild()));
 		}//-if
 		else{
 			System.out.println("ist Inaktiv");
 			this.setGraphic(new ImageView(this.getInaktiv_Bild()));
+		}
+		if(this.besetzt_Sitz == true){
+			this.setGraphic(new ImageView(this.getBesetzt_Bild()));
 		}
 			
 	}

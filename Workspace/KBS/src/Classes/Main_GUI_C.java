@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -21,6 +22,12 @@ public class Main_GUI_C implements Initializable{
 	private GridPane grid;
 	@FXML
 	private Button save;
+	@FXML
+	private Button new_Saal;
+	@FXML
+	private TextField x_int;
+	@FXML
+	private TextField y_int;
 	
 	private KBS_C hauptcontroller = new KBS_C();
 		
@@ -51,7 +58,6 @@ public class Main_GUI_C implements Initializable{
          
         }
      
-        //SitzPlatzFeld sitzPlatzFeld = new SitzPlatzFeld(new Sitz(false, 3, 1, new Saal("Diese Saal", 10, 20)), false);
         grid.add(rec, 0, 0);
         grid.add(newgrid, 0, 1);
         grid.setHalignment(rec, HPos.CENTER);
@@ -59,7 +65,9 @@ public class Main_GUI_C implements Initializable{
     
 	}
 	
-	
+	public void addNewSaal(){
+		System.out.println("Neuer Saal erstellt");
+	}
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
