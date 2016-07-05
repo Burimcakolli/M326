@@ -2,8 +2,10 @@ package Classes;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Controllers.KBS_C;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
@@ -19,12 +21,18 @@ public class Main_GUI_C implements Initializable{
 	private GridPane grid;
 	@FXML
 	private Button save;
+	
+	private KBS_C hauptcontroller = new KBS_C();
 		
 	public void load_GridPane(){    	
 		GridPane newgrid = new GridPane();
+		Rectangle rec = new Rectangle();
+		rec.setWidth(300);
+		rec.setHeight(100);
+		rec.setFill(Color.WHITE);
 		newgrid.setGridLinesVisible(false);
-		final int numCols = 5 ;
-        final int numRows = 5 ;
+		final int numCols = 10 ;
+        final int numRows = 10 ;
         newgrid.setMaxHeight(100);
         newgrid.setMaxWidth(100);
         
@@ -43,9 +51,10 @@ public class Main_GUI_C implements Initializable{
          
         }
      
-        SitzPlatzFeld sitzPlatzFeld = new SitzPlatzFeld(new Sitz(false, 3, 1, new Saal("Diese Saal", 10, 20)), false);
-        newgrid.add(sitzPlatzFeld, 1, 1);
+        //SitzPlatzFeld sitzPlatzFeld = new SitzPlatzFeld(new Sitz(false, 3, 1, new Saal("Diese Saal", 10, 20)), false);
+        grid.add(rec, 0, 0);
         grid.add(newgrid, 0, 1);
+        grid.setHalignment(rec, HPos.CENTER);
         save.setDisable(false); 
     
 	}

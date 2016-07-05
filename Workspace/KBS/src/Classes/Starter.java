@@ -1,5 +1,6 @@
 package Classes;
 
+import Controllers.KBS_C;
 import Views.StageSceneLoader;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -18,7 +19,6 @@ public class Starter extends Application{
 		StageSceneLoader.loadScene(stage, "Main_GUI.fxml");
 		stage.setTitle("KBS");
 		stage.show();
-		
 	}
 	
 	
