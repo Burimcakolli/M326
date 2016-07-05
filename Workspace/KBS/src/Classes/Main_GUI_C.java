@@ -27,28 +27,34 @@ public class Main_GUI_C implements Initializable{
 		newgrid.setGridLinesVisible(true);
 		final int numCols = 5 ;
         final int numRows = 5 ;
+ 
         for (int i = 0; i < numCols; i++) {
             ColumnConstraints colConst = new ColumnConstraints();
             colConst.setPercentWidth(100.0 / numCols);
             newgrid.getColumnConstraints().add(colConst);
+            
            
         }
         for (int i = 0; i < numRows; i++) {
             RowConstraints rowConst = new RowConstraints();
             rowConst.setPercentHeight(100.0 / numRows);
             newgrid.getRowConstraints().add(rowConst);  
+
          
         }
         grid.add(newgrid, 0, 1);
         save.setDisable(false);
-
+        
+       	
+        
     
 	}
+	
+	
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
+		// TODO Auto-generated method stub		
 	}
 
 }
