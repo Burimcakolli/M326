@@ -1,5 +1,6 @@
 package Classes;
 
+import Views.StageSceneLoader;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
