@@ -66,7 +66,7 @@ public void update_Texte(Texte text) {
 		stm = (PreparedStatement) con.prepareStatement(Queries.getQuery("update_Texte"));
 		stm.setString(1, text.getTextinhalt());
 		stm.setInt(2, text.getId());
-		stm.executeQuery();
+		stm.executeUpdate();
 		stm.close();
 	} catch (SQLException e1) {
 		e1.printStackTrace();
@@ -81,7 +81,7 @@ public Object get_Texte(Texte text) {
 		stm.setInt(1, text.getId());
 		ResultSet rs = stm.executeQuery();
 		if(rs.next()){
-			result =  new Texte(rs.getInt(1), rs.getString(2));
+			result =  new Texte(rs.getInt(1), rs.getString(2));			
 		}//-if
 		stm.close();
 		return result;
