@@ -19,17 +19,15 @@ public class Main_GUI_C implements Initializable{
 	private GridPane grid;
 	@FXML
 	private Button save;
-	//SitzPlatzFeld sitzPlatzFeld = new SitzPlatzFeld(new Sitz(false, 3, 1, new Saal("Diese Saal", 10, 20)), false);
-	
-	public void load_GridPane(){
-		System.out.println("Show GridPane test");
-	
-	    	
+		
+	public void load_GridPane(){    	
 		GridPane newgrid = new GridPane();
-		newgrid.setGridLinesVisible(true);
+		newgrid.setGridLinesVisible(false);
 		final int numCols = 5 ;
         final int numRows = 5 ;
- 
+        newgrid.setMaxHeight(100);
+        newgrid.setMaxWidth(100);
+        
         for (int i = 0; i < numCols; i++) {
             ColumnConstraints colConst = new ColumnConstraints();
             colConst.setPercentWidth(100.0 / numCols);
@@ -45,13 +43,10 @@ public class Main_GUI_C implements Initializable{
          
         }
      
-       
-        //newgrid.add(sitzPlatzFeld, 1, 1);
+        SitzPlatzFeld sitzPlatzFeld = new SitzPlatzFeld(new Sitz(false, 3, 1, new Saal("Diese Saal", 10, 20)), false);
+        newgrid.add(sitzPlatzFeld, 1, 1);
         grid.add(newgrid, 0, 1);
-        save.setDisable(false);
-        
-        
-        
+        save.setDisable(false); 
     
 	}
 	

@@ -16,9 +16,9 @@ public class SitzPlatzFeld extends Button{
 		this.setUserPath(this.getUserPath().replace("\\", "/"));
 		this.setMySitz(mySitz);
 		this.setBesetzt_Sitz(besetzt);
-		this.setInaktiv_Bild(new Image(getClass().getResourceAsStream("KinoStuhlInaktiv.PNG")));
-		this.setFrei_Bild(new Image(getClass().getResourceAsStream("KinoStuhlFrei.PNG")));
-		this.setBesetzt_Bild(new Image(getClass().getResourceAsStream("KinoStuhlBestetzt.PNG")));
+		this.setInaktiv_Bild(new Image(getClass().getResourceAsStream("/Views/Icons/KinoStuhlInaktiv.PNG")));
+		this.setFrei_Bild(new Image(getClass().getResourceAsStream("/Views/Icons/KinoStuhlFrei.PNG")));
+		this.setBesetzt_Bild(new Image(getClass().getResourceAsStream("/Views/Icons/KinoStuhlBesetzt.PNG")));
 		System.out.println("Ich wurde erzeugt");
 		if(this.mySitz.isAktiv() == true){
 			System.out.println("ist Aktiv");
