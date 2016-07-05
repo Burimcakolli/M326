@@ -4,31 +4,61 @@
  * Auftrag : TBZ 
  *******************/
 package Classes;
-import java.util.ArrayList;
 
 public class Saal {
 
 //--Instanzvariablen
 	private int id;
 	private String beschreibung;
-	private ArrayList<Sitz> sitzplaetze;
+	private int x;
+	private int y;
 //--END Instanzvariablen
 	
 //--Konstruktoren
-	Saal(int x, int y){
-		
-	}//-Contstructor neu in Tabelle
+	public Saal(int id, String beschreibung, int x, int y){
+		this.setId(id);
+		this.setBeschreibung(beschreibung);
+		this.setX(x);
+		this.setY(y);	
+	}//-Contstructor von DB
 	
-	Saal(int id){
-		
-	}//-Constructor neu in Programm von Tabelle
+	public Saal(String beschreibung, int x, int y){
+		this.setBeschreibung(beschreibung);
+		this.setX(x);
+		this.setY(y);
+	}//-Contstructor noch nicht DB
+	
 //--END Konstruktoren
+
+//--Komplexere Methoden
+	//-#LeCodes
+//--END Komplexere Methoden
 	
-	public void insertSaal(String besch){
-		String sql =  "INSERT INTO tbl_Saal (Beschreibung) VALUES()";
-		MySQLConnection.exectue(sql);
-	}//-public insertSaal
-	
-	
+//--Standart Getter & Setter
+	public int getId() {
+		return id;
+	}//-getId
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getBeschreibung() {
+		return beschreibung;
+	}
+	public void setBeschreibung(String beschreibung) {
+		this.beschreibung = beschreibung;
+	}
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
+//--END Standart Get/Setter
 	
 }//-Saal

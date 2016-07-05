@@ -1,0 +1,19 @@
+public class #class{
+
+//--Instanzvariablen
+
+//--END Instanzvariablen
+	
+//--Konstruktoren
+	
+//--END Konstruktoren
+
+//--Komplexere Methoden
+	//-#LeCodes
+//--END Komplexere Methoden
+	
+//--Standart Getter & Setter
+
+//--END Standart Get/Setter
+	
+}//-class

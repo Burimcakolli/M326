@@ -1,0 +1,2 @@
+insert_=INSERT INTO tbl_ () VALUES ();
+update_=UPDATE tbl_ SET WHERE id_;
