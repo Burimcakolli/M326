@@ -19,6 +19,13 @@ public class Vorstellung_Real {
 		this.setVorstellungsinfos(vorstellungsinfos);
 	}//-Vorstellung_Real von DB
 	
+	public Vorstellung_Real(int id){
+		this.setId(id);
+		this.setAbspiel_zeit_effektiv(null);
+		this.setSpielt_in_saal(null);
+		this.setVorstellungsinfos(null);
+	}//-Vorstellung_Real für internen Modelgebrauch
+	
 	public Vorstellung_Real(Date abspiel_zeit_effektiv, Saal spielt_in_saal, Vorstellung vorstellungsinfos){
 		this.setAbspiel_zeit_effektiv(abspiel_zeit_effektiv);
 		this.setSpielt_in_saal(spielt_in_saal);

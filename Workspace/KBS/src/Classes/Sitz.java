@@ -19,6 +19,14 @@ public class Sitz {
 		this.setSaalangehoerig(saalangehoerig);
 	}//-Sitz von DB
 	
+	public Sitz(int id){
+		this.setId(id);
+		this.setAktiv(false);
+		this.setReihe(0);
+		this.setNummer(0);
+		this.setSaalangehoerig(null);
+	}//-Für internen Modelgebrauch
+	
 	public Sitz(boolean aktiv, int reihe, int nummer, Saal saalangehoerig){
 		this.setAktiv(aktiv);
 		this.setReihe(reihe);

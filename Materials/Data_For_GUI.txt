@@ -1,13 +1,20 @@
 Saal verwalten:
-	ArrayList<Saal, ArrayList<Sitz>>
+	Map<Saal, ArrayList<Sitz>>
  	//Bei neu-erfassung ArrayList neu getten
 	
 	Methoden für
 	-Saale laden 
 	-Aktiv / Inaktiv Sitzplatz
 
+Filme verwalten:
+	ArrayList<Filme>
+	
+	Methoden für:
+	-Filme laden 
+	-Filme erfassen 
+
 Vorstellung verwalten:
-	ArrayList<Vorstellung, ArrayList<Vorstellung_Real>>
+	Map<Vorstellung, ArrayList<Vorstellung_Real>>
 	//Bei neu-erfassung ArrayList neu getten
 
 	Methoden für
@@ -30,9 +37,3 @@ Tickets verwalten:
 	-Tickets laden 
 	-Ticket erfassen
 
-Filme verwalten:
-	ArrayList<Filme>
-	
-	Methoden für:
-	-Filme laden 
-	-Filme erfassen 

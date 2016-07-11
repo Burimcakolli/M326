@@ -19,6 +19,14 @@ public class Film {
 		this.setLaenge_min(laenge_min);
 	}//-Film von DB
 	
+	public Film(int id){
+		this.setId(id);
+		this.setBild_pfad(null);
+		this.setTitel(null);
+		this.setBeschreibung(null);
+		this.setLaenge_min(0);
+	}//-Film für internen Modelgebrauch
+	
 	public Film(String bild_pfad, String titel, String beschreibung, int laenge_min){
 		this.setBild_pfad(bild_pfad);
 		this.setTitel(titel);

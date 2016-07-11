@@ -21,7 +21,14 @@ public class Saal {
 		this.setX(x);
 		this.setY(y);	
 	}//-Contstructor von DB
-	
+		
+	public Saal(int id){
+		this.setId(id);
+		this.setBeschreibung(null);
+		this.setX(0);
+		this.setY(0);	
+	}//-Contstructor für internen Modelgebrauch
+			
 	public Saal(String beschreibung, int x, int y){
 		this.setBeschreibung(beschreibung);
 		this.setX(x);
