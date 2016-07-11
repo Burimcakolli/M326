@@ -1,30 +1,25 @@
 package Controllers;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Map;
+import Views.StageSceneLoader;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-import Classes.Main_GUI_C;
-import Classes.Saal;
-import Classes.Sitz;
+public class Starter extends Application{
 
-//Die Klasse ist für den Start der Applikation zuständig und beinhaltet Grundsätzlich die static main Funktion
-public class Starter {
 	
-	public static void main(String[] args){
+	
+	public static void main(String[] args) {
 		KBS_C myKBS = new KBS_C();
-		
-				
-		Map<Saal, ArrayList<Sitz>> saale_mit_sitze = myKBS.getSaale();
-		Iterator it = saale_mit_sitze.entrySet().iterator();
-		while (it.hasNext()) {
-			Map.Entry pair = (Map.Entry)it.next();
-		    System.out.println(pair.getKey() + " = " + pair.getValue());
-		    it.remove(); // avoids a ConcurrentModificationException
-		}//-while
-	
-	}//-main
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage stage) throws Exception {
+		StageSceneLoader.loadScene(stage, "Main_GUI.fxml");
+		stage.setTitle("KBS");
+		stage.show();
+	}
 	
 	
-	
-}//-Starter
+}
+
