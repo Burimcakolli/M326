@@ -28,7 +28,7 @@ public class KBS_CTest {
 	@Ignore
 	public void erfasseSaal() {
 		//-Eingaben vorbereiten
-		Saal saal = new Saal("Dies ist ein Saal",2,2);
+		Saal saal = new Saal("Dies ist ein ZWEITER Saal",5,5);
 		//-End Eingaben vorbereiten
 		
 		//-Ergebnisse vorbereiten
@@ -173,7 +173,7 @@ public class KBS_CTest {
 	}//-erfasseVorstellung
 	
 	//Prüft Methoden: erfasseReservation, getReservationen
-	@Test
+	@Ignore
 	public void erfasseReservation(){
 		//-Eingaben vorbereiten
 		Map<Vorstellung, ArrayList<Vorstellung_Real>> vorstellungen = kbs_c.getVorstellungen();

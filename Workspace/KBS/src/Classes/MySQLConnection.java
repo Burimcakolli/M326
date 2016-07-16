@@ -169,9 +169,9 @@ public Object get_Saal(Saal saal) {
 	}//-catch
 }
 
-public Map<Saal, ArrayList<Sitz>> getAll_Saal(){
+public ArrayList<Saal> getAll_Saal(){
 	PreparedStatement stm = null;
-	Map<Saal, ArrayList<Sitz>> result = new HashMap();
+	ArrayList<Saal> result = new ArrayList<Saal>();
 	try {
 		stm = (PreparedStatement) con.prepareStatement(Queries.getQuery("getAll_Saal"));
 		ResultSet rs = stm.executeQuery();
@@ -179,17 +179,8 @@ public Map<Saal, ArrayList<Sitz>> getAll_Saal(){
 			Saal saal = null;
 			ArrayList<Sitz> sitze = new ArrayList();
 			Sitz sitz = null;
-			
 			saal = new Saal(rs.getInt(1), rs.getString(2),rs.getInt(3),rs.getInt(4));
-			
-			stm = (PreparedStatement) con.prepareStatement(Queries.getQuery("get_Sitz_fkSaal"));
-			stm.setInt(1, saal.getId());
-			ResultSet es = stm.executeQuery();
-			while(es.next()){
-				sitz = new Sitz(es.getInt(1), es.getBoolean(2), es.getInt(3), es.getInt(4), saal);
-				sitze.add(sitz);
-			}//-for
-			result.put(saal, sitze);
+			result.add(saal);
 		}//-while
 		return result;
 	} catch (SQLException e1) {
@@ -241,7 +232,8 @@ public void update_Sitz(Sitz sitz) {
 		stm.setInt(1, sitz.getNummer());
 		stm.setInt(2, sitz.getReihe());
 		stm.setInt(3, sitz.getSaalangehoerig().getId());
-		stm.setInt(4, sitz.getId());
+		stm.setBoolean(4, sitz.isAktiv());
+		stm.setInt(5, sitz.getId());
 		stm.executeUpdate();
 		stm.close();
 	} catch (SQLException e1) {
@@ -268,6 +260,25 @@ public Object get_Sitz(Sitz sitz) {
 		return result;
 	}//-catch
 }
+
+public ArrayList<Sitz> get_SitzFkSaal(Saal saal){
+	PreparedStatement stm = null;
+	ArrayList<Sitz> result = new ArrayList<Sitz>();
+	try {
+		stm = (PreparedStatement) con.prepareStatement(Queries.getQuery("get_Sitz_fkSaal"));
+		stm.setInt(1, saal.getId());
+		ResultSet rs = stm.executeQuery();
+		while(rs.next()){
+			result.add(new Sitz(rs.getInt(1), rs.getBoolean(2), rs.getInt(3), rs.getInt(4), saal )); 			
+		}//-if
+		stm.close();
+		return result;
+	} catch (SQLException e1) {
+		e1.printStackTrace();
+		return result;
+	}//-catch
+}
+
 
 public void delete_Sitz(Sitz sitz) {
 	PreparedStatement stm = null;
@@ -544,29 +555,17 @@ public Object get_Vorstellung_Real(Vorstellung_Real vorstellung_real) {
 	}//-catch
 }
 
-public Map<Vorstellung, ArrayList<Vorstellung_Real>> getAll_Vorstellungen(){
+public ArrayList<Vorstellung> getAll_Vorstellungen(){
 	PreparedStatement stm = null;
-	Map<Vorstellung, ArrayList<Vorstellung_Real>> result = new HashMap();
+	ArrayList<Vorstellung> result = new ArrayList<Vorstellung>();
 	try {
 		stm = (PreparedStatement) con.prepareStatement(Queries.getQuery("getAll_Vorstellung"));
 		ResultSet rs = stm.executeQuery();
 		while(rs.next()){
-			Vorstellung vorstellung = null;
-			ArrayList<Vorstellung_Real> liste_vorst_real = new ArrayList();
-			Vorstellung_Real vorst_real = null;
-			
+			Vorstellung vorstellung = null;			
 			Film film = (Film) this.get_Film( new Film(rs.getInt(2)));
 			vorstellung = new Vorstellung(rs.getInt(1), film, rs.getInt(3), rs.getDate(4), rs.getDate(5));
-			
-			stm = (PreparedStatement) con.prepareStatement(Queries.getQuery("get_Vorstellung_Real_fkVorstellung"));
-			stm.setInt(1, vorstellung.getId());
-			ResultSet es = stm.executeQuery();
-			while(es.next()){
-				Saal saal = (Saal) this.get_Saal(new Saal(es.getInt(3)));
-				vorst_real = new Vorstellung_Real(es.getInt(1), es.getDate(2), saal ,vorstellung);
-				liste_vorst_real.add(vorst_real);
-			}//-for
-			result.put(vorstellung, liste_vorst_real);
+			result.add(vorstellung);
 		}//-while
 		return result;
 	} catch (SQLException e1) {
@@ -574,6 +573,24 @@ public Map<Vorstellung, ArrayList<Vorstellung_Real>> getAll_Vorstellungen(){
 		return result;
 	}//-catch
 }//-getAll_Vorstellungen
+
+public ArrayList<Vorstellung_Real> get_Vorstellungen_RealFkVorstellung(Vorstellung vorstellung){
+	PreparedStatement stm = null;
+	ArrayList<Vorstellung_Real> result = new ArrayList<Vorstellung_Real>();
+	try {
+		stm = (PreparedStatement) con.prepareStatement(Queries.getQuery("get_Vorstellung_Real_fkVorstellung"));
+		stm.setInt(1, vorstellung.getId());
+		ResultSet rs = stm.executeQuery();
+		while(rs.next()){
+			Vorstellung_Real vorstellung_R = new Vorstellung_Real(rs.getInt(1), rs.getDate(2), (Saal) this.get_Saal(new Saal(rs.getInt(3))), vorstellung);
+			result.add(vorstellung_R);
+		}//-while
+		return result;
+	} catch (SQLException e1) {
+		e1.printStackTrace();
+		return result;
+	}//-catch
+}//-get_Vorstellungen_RealFkVorstellung
 
 public void delete_Vorstellung_Real(Vorstellung_Real vorstellung_real) {
 	PreparedStatement stm = null;

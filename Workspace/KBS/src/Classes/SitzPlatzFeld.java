@@ -1,5 +1,7 @@
 package Classes;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,24 +21,17 @@ public class SitzPlatzFeld extends Button{
 		this.setInaktiv_Bild(new Image(getClass().getResourceAsStream("/Views/Icons/KinoStuhlInaktiv.PNG")));
 		this.setFrei_Bild(new Image(getClass().getResourceAsStream("/Views/Icons/KinoStuhlFrei.PNG")));
 		this.setBesetzt_Bild(new Image(getClass().getResourceAsStream("/Views/Icons/KinoStuhlBesetzt.PNG")));
-		System.out.println("Ich wurde erzeugt");
 		if(this.mySitz.isAktiv() == true){
-			System.out.println("ist Aktiv");
 			this.setGraphic(new ImageView(this.getFrei_Bild()));
 		}//-if
 		else{
-			System.out.println("ist Inaktiv");
 			this.setGraphic(new ImageView(this.getInaktiv_Bild()));
 		}
 		if(this.besetzt_Sitz == true){
 			this.setGraphic(new ImageView(this.getBesetzt_Bild()));
 		}
 			
-	}
-	
-	public SitzPlatzFeld(){
-		System.out.println("Wurde erzeugt");
-	}
+	}//-constructor
 	
 	
 	public String getUserPath() {
@@ -83,5 +78,6 @@ public class SitzPlatzFeld extends Button{
 	public void setBesetzt_Sitz(boolean besetzt_Sitz) {
 		this.besetzt_Sitz = besetzt_Sitz;
 	}
+
 
 }//-Class

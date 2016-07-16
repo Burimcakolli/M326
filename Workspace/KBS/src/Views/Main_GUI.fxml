@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.collections.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -74,60 +75,6 @@
             </AnchorPane>
           </content>
         </Tab>
-        <Tab text="Saal">
-          <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-              <children>
-                <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="621.0" prefWidth="1452.0">
-                  <bottom>
-                    <HBox prefHeight="39.0" prefWidth="1442.0">
-                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="X" />
-                        <TextField fx:id="x_int" prefWidth="98.0">
-                          <HBox.margin>
-                            <Insets right="5.0" fx:id="x1" />
-                          </HBox.margin>
-                        </TextField>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Y" />
-                        <TextField fx:id="y_int" prefWidth="98.0" HBox.margin="$x1" />
-                        <Button fx:id="new_Saal" mnemonicParsing="false" onAction="#addNewSaal" text="Neuer Saal" />
-                      </children>
-                      <padding>
-                        <Insets bottom="5.0" left="1100.0" right="5.0" top="5.0" />
-                      </padding>
-                      <BorderPane.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                      </BorderPane.margin>
-                    </HBox>
-                  </bottom>
-                  <center>
-                    <GridPane>
-                      <children>
-                        <ListView fx:id="saal_auflistung" onMouseClicked="#zeigeSaal" prefHeight="572.0" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                        <GridPane id="Saalordnung_bearbeiten" fx:id="saalordnung_bearbeiten" GridPane.columnIndex="1" GridPane.rowIndex="0">
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                        </GridPane>
-                      </children>
-                      <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="723.0" minWidth="10.0" prefWidth="575.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="877.0" minWidth="10.0" prefWidth="877.0" />
-                      </columnConstraints>
-                      <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                      </rowConstraints>
-                    </GridPane>
-                  </center>
-                </BorderPane>
-              </children>
-            </AnchorPane>
-          </content>
-        </Tab>
         <Tab text="Vorstellung">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -139,12 +86,56 @@
                         <Button mnemonicParsing="false" text="New" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                         <Button mnemonicParsing="false" text="New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                         <Button mnemonicParsing="false" text="Save" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-                        <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <ListView fx:id="vorstellungen_liste_verwalten" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
                           <GridPane.margin>
                             <Insets left="25.0" right="25.0" fx:id="x2" />
                           </GridPane.margin>
                         </ListView>
-                        <ListView prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="0" />
+                        <ListView fx:id="vorstellungen_real_liste_verwalten" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.margin="$x2" GridPane.rowIndex="0" />
+                        <GridPane alignment="TOP_CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                          <children>
+                            <Label prefWidth="44.0" text="Film" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.rowIndex="0">
+                              <GridPane.margin>
+                                <Insets left="30.0" fx:id="x5" />
+                              </GridPane.margin>
+                            </Label>
+                            <Label prefWidth="111.0" text="Zusatzlänge in Min" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.halignment="LEFT" GridPane.margin="$x5" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                            <Label prefWidth="111.0" text="Startdatum" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.margin="$x5" GridPane.rowIndex="2" />
+                            <Label prefWidth="111.0" text="Enddatum" textAlignment="LEFT" GridPane.columnIndex="0" GridPane.margin="$x5" GridPane.rowIndex="3" />
+                            <Button fx:id="insert_Vorstellung" mnemonicParsing="false" text="Insert" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                              <GridPane.margin>
+                                <Insets left="55.0" top="20.0" />
+                              </GridPane.margin>
+                            </Button>
+                            <TextField id="zusatzlaenge_erfasse" fx:id="zusatzlaenge_erfasse_Vorstellung" prefWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                              <GridPane.margin>
+                                <Insets right="200.0" fx:id="x6" />
+                              </GridPane.margin>
+                            </TextField>
+                            <TextField id="startdatum_erfasse" fx:id="startdatum_erfasse_Vorstellung" prefWidth="30.0" GridPane.columnIndex="1" GridPane.margin="$x6" GridPane.rowIndex="2" />
+                            <TextField fx:id="enddatum_erfasse_Vorstellung" prefWidth="30.0" GridPane.columnIndex="1" GridPane.margin="$x6" GridPane.rowIndex="3" />
+                            <ComboBox fx:id="film_erfasse_Vorstellung" prefHeight="21.0" prefWidth="113.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                              <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                  <String fx:value="Item 1" />
+                                  <String fx:value="Item 2" />
+                                  <String fx:value="Item 3" />
+                                </FXCollections>
+                              </items>
+                            </ComboBox>
+                          </children>
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="239.0" minWidth="10.0" prefWidth="170.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="358.0" minWidth="10.0" prefWidth="314.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="192.0" minHeight="6.0" prefHeight="102.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="312.0" minHeight="0.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="399.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="475.0" minHeight="2.0" prefHeight="57.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="512.0" minHeight="10.0" prefHeight="330.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
                       </children>
                       <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -170,9 +161,9 @@
                   <left>
                     <GridPane prefWidth="743.0">
                       <children>
-                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="filmtitel_erfassen" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                        <TextField fx:id="bildpfad_erfassen" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="laengemin_erfassen" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <Text scaleX="1.0" scaleY="0.9999949877632202" strokeType="OUTSIDE" strokeWidth="0.0" text="Titel" GridPane.columnIndex="0" GridPane.rowIndex="0">
                           <GridPane.margin>
                             <Insets left="10.0" fx:id="x4" />
@@ -182,8 +173,8 @@
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Beschreibung" GridPane.columnIndex="0" GridPane.margin="$x4" GridPane.rowIndex="3" GridPane.valignment="TOP" />
                         <Text scaleX="1.0442012523595645" scaleY="0.999993881546745" strokeType="OUTSIDE" strokeWidth="0.0" text="Länge in Min" GridPane.columnIndex="0" GridPane.margin="$x4" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-                        <TextArea prefHeight="150.0" prefWidth="565.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                        <Button mnemonicParsing="false" text="Speichern" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                        <TextArea fx:id="beschreibung_erfassen" prefHeight="150.0" prefWidth="565.0" wrapText="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="film_speichern_erfassen" disable="false" mnemonicParsing="false" onAction="#addNewFilm" text="Speichern" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
                           <GridPane.margin>
                             <Insets top="25.0" />
                           </GridPane.margin>
@@ -202,6 +193,66 @@
                       </rowConstraints>
                     </GridPane>
                   </left>
+                </BorderPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="Saal">
+          <content>
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="621.0" prefWidth="1452.0">
+                  <bottom>
+                    <HBox prefHeight="39.0" prefWidth="1442.0">
+                      <children>
+                        <Label prefWidth="112.0" text="Saal-Beschreibung" />
+                        <TextField fx:id="saalbeschreibung_erfassen" prefWidth="154.0">
+                          <HBox.margin>
+                            <Insets right="5.0" fx:id="x1" />
+                          </HBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="X" />
+                        <TextField fx:id="x_int" prefWidth="98.0">
+                          <HBox.margin>
+                            <Insets right="5.0" fx:id="x1" />
+                          </HBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Y" />
+                        <TextField fx:id="y_int" prefWidth="98.0" HBox.margin="$x1" />
+                        <Button fx:id="new_Saal" disable="false" mnemonicParsing="false" onAction="#addNewSaal" text="Neuer Saal" />
+                      </children>
+                      <padding>
+                        <Insets bottom="5.0" left="860.0" right="5.0" top="5.0" />
+                      </padding>
+                      <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                      </BorderPane.margin>
+                    </HBox>
+                  </bottom>
+                  <center>
+                    <GridPane>
+                      <children>
+                        <ListView fx:id="saal_auflistung" onMouseClicked="#zeigeSaal" prefHeight="572.0" prefWidth="555.0" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                        <GridPane id="Saalordnung_bearbeiten" fx:id="saalordnung_bearbeiten" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints maxHeight="286.0" minHeight="10.0" prefHeight="99.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="473.0" minHeight="10.0" prefHeight="473.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="723.0" minWidth="10.0" prefWidth="575.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="877.0" minWidth="10.0" prefWidth="877.0" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                  </center>
                 </BorderPane>
               </children>
             </AnchorPane>

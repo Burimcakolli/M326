@@ -9,10 +9,11 @@ public class Sammler {
 
 //--Instanzvariablen
 	private ArrayList<Texte>			texte				= new ArrayList();
-	private Map<Saal,ArrayList<Sitz>> 	saale			= new HashMap();
-	private ArrayList<Film> 			filme 				= new ArrayList();
-	private Map<Vorstellung, ArrayList<Vorstellung_Real>> 		vorstellungen 		= new HashMap();
-	private ArrayList<Vorstellung_Real> vorstellungen_real 	= new ArrayList();
+	private ArrayList<Saal> 	saale			= new ArrayList<Saal>();
+	private ArrayList<Sitz>	sitze = new ArrayList<Sitz>();
+	private ArrayList<Film> 			filme 				= new ArrayList<Film>();
+	private ArrayList<Vorstellung> 		vorstellungen 		= new ArrayList<Vorstellung>();
+	private ArrayList<Vorstellung_Real> vorstellungen_real 	= new ArrayList<Vorstellung_Real>();
 	private Map<Reservation, ArrayList<Ticket>> 		reservationen 		= new HashMap();
 	private MySQLConnection db = new MySQLConnection();
 //--END Instanzvariablen
@@ -34,9 +35,18 @@ public class Sammler {
 		this.setVorstellungen(db.getAll_Vorstellungen());
 	}//-loadVorstellungen
 	
+	private void loadVorstellungen_Real(Vorstellung vorstellung){
+		this.setVorstellungen_real(db.get_Vorstellungen_RealFkVorstellung(vorstellung));
+	}//-loadVorstellungen_Real
+	
 	private void loadReservationen(){
 		this.setReservationen(db.getAll_Reservationen());
 	}//-loadReservationen
+	
+	public ArrayList<Sitz> get_SitzFkSaal(Saal saal){
+		this.setSitze(db.get_SitzFkSaal(saal));
+		return this.getSitze();
+	}//-Saal
 	
 //--END Komplexere Methoden
 		
@@ -49,12 +59,20 @@ public class Sammler {
 		this.texte = texte;
 	}
 
-	public Map<Saal, ArrayList<Sitz>> getSaale() {
+	public ArrayList<Sitz> getSitze() {
+		return sitze;
+	}
+
+	public void setSitze(ArrayList<Sitz> sitze) {
+		this.sitze = sitze;
+	}
+
+	public ArrayList<Saal> getSaale() {
 		this.loadSaale();
 		return saale;
 	}
 
-	public void setSaale(Map<Saal, ArrayList<Sitz>> saale) {
+	public void setSaale(ArrayList<Saal> saale) {
 		this.saale = saale;
 	}
 
@@ -67,16 +85,17 @@ public class Sammler {
 		this.filme = filme;
 	}
 
-	public Map<Vorstellung, ArrayList<Vorstellung_Real>> getVorstellungen() {
+	public ArrayList<Vorstellung> getVorstellungen() {
 		this.loadVorstellungen();
 		return vorstellungen;
 	}
 
-	public void setVorstellungen(Map<Vorstellung, ArrayList<Vorstellung_Real>> vorstellungen) {
+	public void setVorstellungen(ArrayList<Vorstellung> vorstellungen) {
 		this.vorstellungen = vorstellungen;
 	}
 
-	public ArrayList<Vorstellung_Real> getVorstellungen_real() {
+	public ArrayList<Vorstellung_Real> getVorstellungen_realFkVorstellung(Vorstellung vorstellung) {
+		this.loadVorstellungen_Real(vorstellung);
 		return vorstellungen_real;
 	}
 

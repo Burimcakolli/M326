@@ -16,10 +16,14 @@ public class KBS_C {
 		this.db.insert_Saal(saal);
 	}//-erfasseSaal
 	
-	public Map<Saal,ArrayList<Sitz>> getSaale(){
+	public ArrayList<Saal> getSaale(){
 		return this.myData.getSaale();
 	}//-getSaale
 		
+	public ArrayList<Sitz> getSitzeFkSaal(Saal saal){
+		return this.myData.get_SitzFkSaal(saal);
+	}//-getSitzeFkSaal
+	
 	public void setzeSitz(Sitz sitz){
 		this.db.update_Sitz(sitz);
 	}//-setzeSitz
@@ -44,9 +48,14 @@ public class KBS_C {
 		this.db.insert_Vorstellung_Real(vorstellung_real);
 	}//-erfasseVorstellung_Real
 	
-	public Map<Vorstellung, ArrayList<Vorstellung_Real>> getVorstellungen(){
+	public ArrayList<Vorstellung> getVorstellungen(){
 		return this.myData.getVorstellungen();
 	}//-getVorstellungen
+	
+	public ArrayList<Vorstellung_Real> getVorstellungenReal(Vorstellung vorstellung){
+		return this.myData.getVorstellungen_realFkVorstellung(vorstellung);
+	} 
+	
 //End Vorstellungen verwalten
 	
 //Reservationen verwalten	
